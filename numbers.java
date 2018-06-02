@@ -1,4 +1,13 @@
+/*
+ * A simple game.
+ * The user is asked for a name, and whether or not they want to play the game.
+ * The game requires the user to guess a number between 1 to 10. It records the number of attempts made.
+ * When the correct number is guessed, the program congratulates the user and displays the number of attempts made.
+ * 
+ * @author: Felix
+ */
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class numbers
@@ -30,6 +39,38 @@ public class numbers
 			System.exit(0);
 		}
 		
+		Random rand = new Random(11);
+		int number = rand.nextInt(10) + 1;
+		int attempts = 1;
+		
+		System.out.println("I am thinking of a number between 1 and 10. What is your guess?");
+		int guess = reader.nextInt();
+		
+		//Hints for the user's next guess
+		while(guess != number)
+		{
+			if(guess < number)
+			{
+				System.out.println("Try a number that is higher.");
+				guess = reader.nextInt();
+			}
+			if(guess > number)
+			{
+				System.out.println("Try a number that is lower.");
+				guess = reader.nextInt();
+			}
+			
+			attempts += 1;
+		}
+		
+		//Given that the user guessed the correct number
+		if(guess == number)
+		{
+			if(attempts == 1)
+				System.out.println("Congrats! The number was " + number + ". You made " + attempts + " attempt.");
+			else
+				System.out.println("Congrats! The number was " + number + ". You made " + attempts + " attempts.");
+		}
 	}
 	
 	//This function checks the user response to see if it is a valid response
@@ -41,9 +82,9 @@ public class numbers
 			return false;
 	}
 	
+	//Runs the program
 	public static void main (String[] args)
 	{
 		numbers main = new numbers();
 	}
-	
 }
