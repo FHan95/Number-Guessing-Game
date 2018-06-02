@@ -3,7 +3,7 @@ A simple game.
 
 The user is asked for a name, and whether or not they want to play the game.
 The game requires the user to guess a number between 1 to 10. It records the number of attempts made.
-When the correct number is guessed, the program congratulates the user and displays the number of attemps made.
+When the correct number is guessed, the program congratulates the user and displays the number of attempts made.
 
 @author: Felix
 '''
